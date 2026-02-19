@@ -1,0 +1,42 @@
+Generic single-database configuration for Trajectory Engine MVP.
+
+This directory contains Alembic migration scripts for managing database schema changes.
+
+## Quick Start
+
+1. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. Generate a new migration (after changing models.py):
+   ```bash
+   alembic revision --autogenerate -m "Description of changes"
+   ```
+
+3. Apply migrations:
+   ```bash
+   alembic upgrade head
+   ```
+
+4. Rollback one migration:
+   ```bash
+   alembic downgrade -1
+   ```
+
+5. Check current version:
+   ```bash
+   alembic current
+   ```
+
+6. View migration history:
+   ```bash
+   alembic history
+   ```
+
+## Important Notes
+
+- Always review auto-generated migrations before applying them
+- Test migrations on development database first
+- Backup production database before applying migrations
+- The database URL is configured in alembic.ini and can be overridden by .env file

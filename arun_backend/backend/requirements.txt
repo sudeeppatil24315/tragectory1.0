@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+python-dotenv
+chromadb
+sentence-transformers
+alembic
+numpy
+scikit-learn
+pandas

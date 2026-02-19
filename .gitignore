@@ -1,0 +1,112 @@
+# ============================================
+# SPEC FILES - DO NOT PUSH TO ARUN
+# ============================================
+# Only exclude these 3 files:
+.kiro/specs/trajectory-engine-mvp/requirements.md
+.kiro/specs/trajectory-engine-mvp/design.md
+.kiro/specs/trajectory-engine-mvp/tasks.md
+
+# ============================================
+# DOCUMENTATION - KEEP FOR ARUN
+# ============================================
+# These files WILL be pushed:
+# - arun_backend/ARUN-INSTRUCTIONS.md
+# - arun_backend/ARUN-REMOTE-ACCESS-SETUP.md
+# - arun_backend/README.md
+# - arun_backend/API.md
+# - arun_backend/TESTING_GUIDE.md
+
+# ============================================
+# ENVIRONMENT & SECRETS
+# ============================================
+.env
+.env.local
+.env.*.local
+*.env
+
+# ============================================
+# PYTHON
+# ============================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv
+
+# ============================================
+# DATABASES & VECTOR STORES
+# ============================================
+chroma_db/
+*.db
+*.sqlite
+*.sqlite3
+
+# ============================================
+# IDEs & EDITORS
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# ============================================
+# OS FILES
+# ============================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ============================================
+# LOGS & TEMPORARY FILES
+# ============================================
+*.log
+logs/
+*.tmp
+*.temp
+
+# ============================================
+# DOCUMENTATION FOLDER - KEEP FOR ARUN
+# ============================================
+# documentation/ folder WILL be pushed
+
+# ============================================
+# ALEMBIC MIGRATION VERSIONS (Optional)
+# ============================================
+# Uncomment if you don't want to share migration files
+# arun_backend/backend/alembic/versions/*.py
