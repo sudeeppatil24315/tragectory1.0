@@ -60,10 +60,15 @@ env.bak/
 venv.bak/
 .venv
 
+# Testing
+.hypothesis/
+.pytest_cache/
+
 # ============================================
 # DATABASES & VECTOR STORES
 # ============================================
 chroma_db/
+qdrant_storage/
 *.db
 *.sqlite
 *.sqlite3

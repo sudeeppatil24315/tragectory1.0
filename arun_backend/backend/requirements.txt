@@ -9,3 +9,8 @@ alembic
 numpy
 scikit-learn
 pandas
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
+qdrant-client
+hypothesis

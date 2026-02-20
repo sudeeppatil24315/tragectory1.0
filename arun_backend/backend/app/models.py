@@ -47,9 +47,9 @@ class Student(Base):
     # Spec-required fields
     name = Column(String, nullable=False)
     major = Column(String, nullable=False, index=True)
-    semester = Column(Integer, CheckConstraint('semester >= 1 AND semester <= 8'))
-    gpa = Column(Numeric(3, 2), CheckConstraint('gpa >= 0 AND gpa <= 10'))
-    attendance = Column(Numeric(5, 2), CheckConstraint('attendance >= 0 AND attendance <= 100'))
+    semester = Column(Integer)
+    gpa = Column(Numeric(3, 2))
+    attendance = Column(Numeric(5, 2))
     study_hours_per_week = Column(Numeric(4, 1))
     project_count = Column(Integer, default=0)
     vector_id = Column(String)  # Reference to Qdrant vector
@@ -96,8 +96,8 @@ class Alumni(Base):
     graduation_year = Column(Integer, nullable=False, index=True)
     
     # Academic data
-    gpa = Column(Numeric(3, 2), nullable=False, CheckConstraint('gpa >= 0 AND gpa <= 10'))
-    attendance = Column(Numeric(5, 2), nullable=False, CheckConstraint('attendance >= 0 AND attendance <= 100'))
+    gpa = Column(Numeric(3, 2), nullable=False)
+    attendance = Column(Numeric(5, 2), nullable=False)
     study_hours_per_week = Column(Numeric(4, 1))
     project_count = Column(Integer)
     
@@ -106,7 +106,7 @@ class Alumni(Base):
     company_tier = Column(Enum(CompanyTierEnum))
     role_title = Column(String)
     salary_range = Column(String)
-    role_to_major_match_score = Column(Numeric(5, 2), CheckConstraint('role_to_major_match_score >= 0 AND role_to_major_match_score <= 100'))
+    role_to_major_match_score = Column(Numeric(5, 2))
     
     # Vector reference
     vector_id = Column(String)  # Reference to Qdrant vector
@@ -167,10 +167,10 @@ class DigitalWellbeingData(Base):
     communication_hours = Column(Numeric(4, 2), default=0)
     
     # Focus and productivity
-    focus_score = Column(Numeric(3, 2), CheckConstraint('focus_score >= 0'))
+    focus_score = Column(Numeric(3, 2))
     
     # Sleep metrics
-    sleep_duration_hours = Column(Numeric(3, 1), CheckConstraint('sleep_duration_hours >= 0 AND sleep_duration_hours <= 24'))
+    sleep_duration_hours = Column(Numeric(3, 1))
     sleep_bedtime = Column(Time)
     sleep_wake_time = Column(Time)
     sleep_quality = Column(Enum(SleepQualityEnum))
@@ -212,8 +212,8 @@ class TrajectoryScore(Base):
     __tablename__ = "trajectory_scores"
     id = Column(Integer, primary_key=True, index=True)
     student_id = Column(Integer, ForeignKey("students.id"), index=True)
-    score = Column(Numeric(5, 2), nullable=False, CheckConstraint('score >= 0 AND score <= 100'))
-    confidence = Column(Numeric(3, 2), nullable=False, CheckConstraint('confidence >= 0 AND confidence <= 1'))
+    score = Column(Numeric(5, 2), nullable=False)
+    confidence = Column(Numeric(3, 2), nullable=False)
     margin_of_error = Column(Numeric(4, 2))
     trend = Column(Enum(TrendEnum))  # improving, declining, stable
     velocity = Column(Numeric(5, 2))  # Score change per week
@@ -247,10 +247,10 @@ class Skill(Base):
     id = Column(Integer, primary_key=True, index=True)
     student_id = Column(Integer, ForeignKey("students.id"), nullable=False, index=True)
     skill_name = Column(String, nullable=False, index=True)
-    proficiency_score = Column(Numeric(5, 2), nullable=False, CheckConstraint('proficiency_score >= 0 AND proficiency_score <= 100'))
-    quiz_score = Column(Numeric(5, 2), CheckConstraint('quiz_score >= 0 AND quiz_score <= 100'))
-    voice_score = Column(Numeric(5, 2), CheckConstraint('voice_score >= 0 AND voice_score <= 100'))
-    market_weight = Column(Numeric(3, 2), default=1.0, CheckConstraint('market_weight IN (0.5, 1.0, 2.0)'))
+    proficiency_score = Column(Numeric(5, 2), nullable=False)
+    quiz_score = Column(Numeric(5, 2))
+    voice_score = Column(Numeric(5, 2))
+    market_weight = Column(Numeric(3, 2), default=1.0)
     market_weight_reasoning = Column(Text)
     last_assessed_at = Column(DateTime)
     created_at = Column(DateTime, default=datetime.utcnow)

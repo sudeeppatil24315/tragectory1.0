@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from typing import List
 from pydantic import BaseModel
 from app.db import get_db
-from app.models import BehavioralMetric, DigitalWellbeingDaily as DigitalWellbeingDailyModel, DailyLog
+from app.models import BehavioralMetric, DigitalWellbeingData as DigitalWellbeingDailyModel, DailyLog
 from datetime import date, datetime
 
 router = APIRouter(prefix="/metrics", tags=["metrics"])
